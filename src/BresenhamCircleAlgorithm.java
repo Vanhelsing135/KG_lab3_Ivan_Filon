@@ -13,14 +13,21 @@ public class BresenhamCircleAlgorithm implements Algorithms {
         int d = 3 - 2 * r;
 
         while (x <= y) {
-            drawcircle(g, x0, y0, x, y, cellSize, centerX, centerY);
-            x++;
-            if (d > 0) {
-                y--;
-                d = d + 4 * (x - y) + 10;
+            drawpoint(g, x0 + x, y0 + y, cellSize, centerX, centerY);
+            drawpoint(g, x0 + x, y0 - y, cellSize, centerX, centerY);
+            drawpoint(g, x0 - x, y0 + y, cellSize, centerX, centerY);
+            drawpoint(g, x0 - x, y0 - y, cellSize, centerX, centerY);
+            drawpoint(g, x0 + y, y0 + x, cellSize, centerX, centerY);
+            drawpoint(g, x0 + y, y0 - x, cellSize, centerX, centerY);
+            drawpoint(g, x0 - y, y0 + x, cellSize, centerX, centerY);
+            drawpoint(g, x0 - y, y0 - x, cellSize, centerX, centerY);
+            if (d < 0) {
+                d += 4 * x + 6;
             } else {
-                d = d + 4 * x + 6;
+                d += 4 * (x - y--) + 10;
             }
+            x++;
+
         }
         long end = System.currentTimeMillis() - start;
         logArea.append("Time: " + end / 1000.0 + " seconds\n");
