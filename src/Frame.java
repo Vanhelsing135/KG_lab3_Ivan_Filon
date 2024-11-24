@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Frame extends JFrame {
+    private int count = 0;
     private final JTextField x0Field = new JTextField("0");
     private final JTextField y0Field = new JTextField("0");
     private final JTextField x1Field = new JTextField("0");
@@ -28,7 +29,10 @@ public class Frame extends JFrame {
                 super.paintComponent(g);
                 drawGrid(g);
                 drawAxis(g);
-                draw(g);
+                if (count != 0) {
+                    draw(g);
+                }
+                count++;
             }
         };
         scene.setPreferredSize(new Dimension(800, 800));
