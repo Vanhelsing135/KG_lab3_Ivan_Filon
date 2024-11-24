@@ -17,7 +17,7 @@ public class StepByStepAlgorithm implements Algorithms {
             y1 = buf;
         }
 
-        logArea.setText("step-by-step:\n");
+        logArea.setText("stepByStep:\n");
         g.setColor(Color.BLACK);
 
         int dx = x1 - x0;
@@ -28,7 +28,7 @@ public class StepByStepAlgorithm implements Algorithms {
 
             for (int x = x0; x <= x1; x++) {
                 double y = y0 + slope * (x - x0);
-                int yRounded = (int) Math.floor(y);
+                int yRounded = (int) Math.round(y);
                 logArea.append("point (" + x + ", " + yRounded + ")\n");
                 var cellX = x * cellSize + centerX;
                 var cellY = -yRounded * cellSize + centerY - cellSize;
@@ -38,7 +38,7 @@ public class StepByStepAlgorithm implements Algorithms {
             double slope = (double) dx / dy;
             for (int y = y0; y <= y1; y++) {
                 double x = x0 + slope * (y - y0);
-                int xRounded = (int) Math.floor(x);
+                int xRounded = (int) Math.round(x);
                 logArea.append("point (" + xRounded + ", " + y + ")\n");
                 var cellX = xRounded * cellSize + centerX;
                 var cellY = -y * cellSize + centerY - cellSize;

@@ -37,7 +37,7 @@ public class Frame extends JFrame {
         JPanel algosPanel = new JPanel();
         algosPanel.setLayout(new BoxLayout(algosPanel, BoxLayout.Y_AXIS));
         algosPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        add(algosPanel, BorderLayout.WEST);
+        add(algosPanel, BorderLayout.EAST);
 
         ButtonGroup groupButton = new ButtonGroup();
         stepByStepAlgoButton = new JRadioButton("StepByStep");
